@@ -1,0 +1,98 @@
+/* Use this file to create your CSS Grid Layout Content*/
+/**asteriks* apply to everything*/
+
+*{
+	box-sizing:border-box; /*controls how the box model is measured*/
+}
+
+
+
+.grid-container{	/*parent grid*/
+	display:grid;
+	grid-template-columns:repeat(8, 1fr); /*fr=flexible fraction of grid*/
+	grid-template-rows:5rem 2fr 1fr 5rem ;
+	/*min-height:100vh;*/
+}
+
+header{
+	grid-column-start:1;
+	grid-column-end:9;
+}
+
+.main{
+	grid-column-start:1;
+	grid-column-end:span 6;
+}
+
+.sidebar{
+	grid-column:7 / 9; /*shorthand for beginning and end*/
+}
+
+.card-row-container{
+	grid-column:2 / 8;
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr;
+	grid-column-gap:0.5rem; /*column gutters*/
+}
+
+.product-card{
+	
+
+}
+
+/*method of creating left and right gutters*/
+.product-card:first-of-type{
+	margin-left:0.5rem;
+}
+
+.product-card:last-of-type{
+	margin-right:0.5rem;
+}
+
+footer{
+	grid-column: 1 / span 8;	
+}
+
+@media screen and (max-width:58em)	{
+	.main{
+		grid-column:1 / span 8;
+	}
+	.sidebar{
+		grid-column:1 / span 8;
+	}	
+}
+
+@media screen and (max-width:58em){
+	.card-row-container{
+		grid-column:1 / 9;
+	}
+}
+
+@media screen and (max-width:43em){
+	.product-card{
+		grid-column:1 / span 3;
+		margin:0.5rem;
+	}
+	.grid-container{
+		grid-template-rows:5rem 2fr 1fr 1fr 5rem ;
+	}
+}
+
+
+@media screen and (max-width:30em)	{
+	.card-row-container{
+		font-size:0.75rem;
+	}
+	.main{
+		font-size:0.75rem;
+	}
+	.sidebar{
+		font-size:0.75rem;
+	}
+	header{
+		font-size:0.75rem;
+	}
+	footer{
+		font-size:0.75rem;
+	}
+}
